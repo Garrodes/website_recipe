@@ -1,8 +1,31 @@
 <?php 
-// editing class recipe to be extended by classes desert and main_course ?
-// which differences ? is it necesssary to create 3 classes or just 1 ? 
-// which one is more efficient ?
-// also need to display different pizzas or pies or cakes
-// in the db differentiate them ? 
-// but they are the same object ? 
-// cost of selecting them all every time ?
+
+namespace App\Model\recipe;
+
+require_once('src/lib/database.php');
+
+
+
+class RecipeRepository 
+{
+    public \DatabaseConnection $connection;
+
+    public ?PDO $database = null;
+
+    public function getDeserts(): Array
+    {
+        $statement= $this->connection -> getConnection()->prepare
+        ("SELECT recipe_name FROM recipe WHERE recipe_name='desert' ORDER BY recipe_id ");
+        $statement->execute([$identifier]);
+
+        $deserts=[];
+        while($row = $statement -> fetch()) {
+            $desert-> recipe_name = $row['recipe_name'];
+            $deserts[]=$desert;
+        }
+        return $deserts;
+
+    }
+
+
+}
