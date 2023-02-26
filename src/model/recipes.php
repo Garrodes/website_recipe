@@ -4,8 +4,6 @@ namespace App\Model\recipe;
 
 require_once('src/lib/database.php');
 
-
-
 class RecipeRepository 
 {
     public \DatabaseConnection $connection;
@@ -15,7 +13,7 @@ class RecipeRepository
     public function getDeserts(): Array
     {
         $statement= $this->connection -> getConnection()->prepare
-        ("SELECT recipe_name FROM recipe WHERE recipe_name='desert' ORDER BY recipe_id ");
+        ("SELECT recipe_id, recipe_name FROM recipe WHERE recipe_name='desert' ORDER BY recipe_id ");
         $statement->execute([$identifier]);
 
         $deserts=[];
