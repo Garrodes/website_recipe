@@ -4,11 +4,12 @@
 
     <h1> <a href="index.php">Site de Recettes </a></h1>
 
-    <div class=desert>
-    <h2> Liste des recettes du site </h2>
-        
-        <h3> <?= htmlspecialchars($desert['recipe_name']); ?>
-
+    <div class="deserts">
+    <h2> Liste des desserts du site </h2>
+     
+  
+        <h3> <?= var_dump($desert); ?>
+   
 <?php $content=ob_get_clean() ; ?>
 
 <?php require('templates/layout.php'); ?>

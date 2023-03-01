@@ -4,7 +4,7 @@
 
 <h1> Accueil du Site </h1>
 
-<h2><a href="index.php?action=desert=<?= urlencode($desert-> identifier)?>"> Desserts </a></h2>
+<h2><a href="index.php?action=deserts&id=<?= urlencode($desert-> identifier)?>"> Desserts </a></h2>
 
 <?php $content=ob_get_clean(); ?>
 
