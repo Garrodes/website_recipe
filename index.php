@@ -1,6 +1,7 @@
 <?php 
 require_once('src/controllers/homepage.php');
 require_once('src/controllers/desert.php');
+require_once('src/controllers/recettes.php');
 
 try 
 {
@@ -15,6 +16,10 @@ try
                 throw new Exception('Aucun id de recette envoyé');
             }
 
+        }
+        elseif ($_GET['action']==='recettes')
+        {
+            recettes();
         } else {
             throw new Exception('La page que vous rechercher n\'existe pas');
         }

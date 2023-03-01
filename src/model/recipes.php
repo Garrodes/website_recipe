@@ -26,5 +26,23 @@ class RecipeRepository
 
     }
 
+    public function getRecettes()
+    {
+        $statement = $this -> connection -> getConnection()-> prepare 
+        ( "SELECT * FROM recipe ORDER BY recipe_id");
+        $statement->execute();
+
+        $recettes=[];
+        while($row = $statement -> fetch()) {
+            $recette = new RecipeRepository();
+            $recette->recipe_id= $row['recipe_id'];
+            $recette-> recipe_name = $row['recipe_name'];
+            $recette->recipe_order = $row['recipe_order'];
+            $recettes[]=$recette;
+        }
+        return $recettes;
+
+    }
+
 
 }
