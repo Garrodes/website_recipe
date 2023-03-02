@@ -1,5 +1,6 @@
 <?php 
 
+namespace App\model\recipes;
 
 require_once('src/lib/database.php');
 
@@ -39,7 +40,7 @@ class RecipeRepository
             $recette->recipe_order = $row['recipe_order'];
             $recettes[]=$recette;
         }
-        return $recettes;
+        var_dump($recettes);
 
     }
 

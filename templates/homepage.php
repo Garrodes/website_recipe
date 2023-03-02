@@ -5,7 +5,9 @@
 <h1> Accueil du Site </h1>
 
 <p> Json Ingredients :</br>
-    <?php echo 'Vous me recevez ?'; ?>
+    <?php 
+    
+    ?>
 </p>
 
 <h2><a href="index.php?action=deserts&id=<?= urlencode($desert-> identifier)?>"> Desserts </a></h2>

@@ -3,12 +3,14 @@
 require_once('src/lib/database.php');
 require_once('src/model/recipes.php');
 
+use App\model\recipes\RecipeRepository;
+
     function deserts(string $identifier)
     {
         $connection= new DatabaseConnection();
 
         $desertRepository= new RecipeRepository;
-        $desertRepository->connection = $connection;;
+        $desertRepository->connection = $connection;
         $desert=$desertRepository -> getDeserts($identifier);
 
         require('templates/deserts.php');

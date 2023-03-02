@@ -5,18 +5,30 @@ namespace test;
 
 class Ingredients 
 {
-    public $ing_id = null;
-    public $name = 'default';
-    public $category = 1;
-    public $price = 1;
+    /* 
+    private array $ingredient = [ 
+        'int_id' => int, 
+        'name'=> string, 
+        'category' => string,
+        'price' => float,
+     ];
+     */
+    private int $ing_id;
+    private string $name;
+    private string $category;
+    private float $price;
+   
     // public array $ingredient =['ing_id'=>int, 'name'=>string,'category'=>string, 'price'=>float];
     public function getIngredients()
     {
+        
         $IngredientJson = file_get_contents('public/data/ingredients.json');
 
-        $Ingredient = json_decode($IngredientJson, true);
+        $IngredientDecoded=json_decode($IngredientJson, true);
 
-        foreach($Ingredient as $ing){
+        var_dump($given_array);
+        foreach($IngredientDecoded as $ing) 
+        {
             echo $ing["name"];
         }
         
@@ -26,14 +38,5 @@ class Ingredients
 
     }
 
-    public function getSpecs()
-    {
-     return sprintf(
-        '%s, n:%s,cp(%s,%s)',
-        $this -> ing_id,
-        $this ->name,
-        $this -> category,
-        $this->price
-    );
-    }
+    
 }
