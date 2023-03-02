@@ -8,7 +8,7 @@ require_once('src/model/recipes.php');
         $connection= new DatabaseConnection();
 
         $desertRepository= new RecipeRepository;
-        $desertRepository->connection = $connection;
+        $desertRepository->connection = $connection;;
         $desert=$desertRepository -> getDeserts($identifier);
 
         require('templates/deserts.php');

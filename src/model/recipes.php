@@ -26,12 +26,11 @@ class RecipeRepository
 
     }
 
-    public function getRecettes()
+    public function getRecettes(): array
     {
-        $statement = $this -> connection -> getConnection()-> prepare 
+        $statement = $this -> connection -> getConnection()-> query
         ( "SELECT * FROM recipe ORDER BY recipe_id");
-        $statement->execute();
-
+        
         $recettes=[];
         while($row = $statement -> fetch()) {
             $recette = new RecipeRepository();

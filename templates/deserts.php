@@ -8,7 +8,7 @@
     <h2> Liste des desserts du site </h2>
      
   
-        <h3> <?= var_dump($desert); ?>
+        <h3> <?php var_dump($desert); ?> </h3>
    
 <?php $content=ob_get_clean() ; ?>
 
