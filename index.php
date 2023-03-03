@@ -2,6 +2,8 @@
 require_once('src/controllers/homepage.php');
 require_once('src/controllers/desert.php');
 require_once('src/controllers/recettes.php');
+require_once('src/controllers/save_ing.php');
+require_once('src/model/ingredients.php');
 
 try 
 {
@@ -20,6 +22,14 @@ try
         elseif ($_GET['action']==='recettes')
         {
             recettes();
+        } elseif ($_GET['action']==='save_ing')
+        {
+            save_ing();
+        
+        } elseif ($_GET['action']==='addIng')
+        {
+             addIng();
+        
         } else {
             throw new Exception('La page que vous rechercher n\'existe pas');
         }

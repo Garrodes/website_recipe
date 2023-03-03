@@ -4,11 +4,7 @@
 
 <h1> Accueil du Site </h1>
 
-<p> Json Ingredients :</br>
-    <?php 
-    
-    ?>
-</p>
+<p> <a href ="index.php?action=save_ing"> Save your Ingredients JSON  </a></br> </p>
 
 <h2><a href="index.php?action=deserts&id=<?= urlencode($desert-> identifier)?>"> Desserts </a></h2>
 

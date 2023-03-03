@@ -27,7 +27,7 @@ class RecipeRepository
 
     }
 
-    public function getRecettes(): array
+    public function getRecettes()
     {
         $statement = $this -> connection -> getConnection()-> query
         ( "SELECT * FROM recipe ORDER BY recipe_id");

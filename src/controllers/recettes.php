@@ -11,7 +11,7 @@ use App\model\recipes\RecipeRepository;
 
         $recettesRepository= new RecipeRepository;
         $recettesRepository->connection = $connection;
-        $recettestRepository-> getRecettes();
+        $recette = $recettestRepository-> getRecettes();
 
         require('templates/recettes.php');
     }
