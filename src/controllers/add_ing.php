@@ -28,21 +28,20 @@
           } else {
               $price = '';
           }
-
           
-
-          $ings = getIngredients();
-
-          var_dump($ing);
+          $ings = new Ingredients();
+    
+          $ings -> getIngredients($ings);
+    
+          var_dump($ings);
 
           $newIng = array(
-              'ing_id' => $ing_id,
-              'name' => $name,
-              'cateogry' => $category,
-              'price' => $price
-          );
-        
-          $ings[] = $newIng;
+            'ing_id' => $ing_id,
+            'name' => $name,
+            'category' => $category,
+            'price' => $price
+        );
+        $ings[] =  $newIng;
           var_dump($ings);
           $json = json_encode($ings);
 

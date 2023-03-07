@@ -1,1 +1,4 @@
-[{"ing_id":"5","name":"a","cateogry":"a","price":"4"}]
+[
+    {"ing_id":"1","name":"Carrot","category":"tubercule","price":"2"},
+    {"ing_id":"2","name":"Apricot","category":"fruit","price":"6"}
+]
