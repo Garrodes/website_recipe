@@ -4,7 +4,7 @@
 
 <h1> Saving entries into a Json file : </h1>
 
-<form method="POST" action="index.php?action=addIng" >
+<form method="POST" action="index.php?action=add_ing" >
 <div>
     <label for="ing_id"> Ing_id : </label>
     <input type="number" name="ing_id" id="ing_id" lenght=30 />

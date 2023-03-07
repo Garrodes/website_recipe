@@ -9,6 +9,10 @@ function homepage()
 {
    // create a value , modify its content through a function Inflation() and return price;
    
+    $carrot = new Ingredients();
+    $carrot-> name = 'Carrotte';
+    echo  $carrot->getName($carrot);
+    var_dump($carrot);
     
     require('templates/homepage.php');
 }

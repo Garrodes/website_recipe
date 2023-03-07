@@ -5,6 +5,7 @@
  use test\Ingredients;
 
  function save_ing() 
- {     
+ { 
+  
    require('templates/save_ing.php');
  }

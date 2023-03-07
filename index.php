@@ -4,6 +4,7 @@ require_once('src/controllers/desert.php');
 require_once('src/controllers/recettes.php');
 require_once('src/controllers/save_ing.php');
 require_once('src/model/ingredients.php');
+require_once('src/controllers/add_ing.php');
 
 try 
 {
@@ -26,9 +27,9 @@ try
         {
             save_ing();
         
-        } elseif ($_GET['action']==='addIng')
+        } elseif ($_GET['action']==='add_ing')
         {
-             addIng();
+             add_ing();
         
         } else {
             throw new Exception('La page que vous rechercher n\'existe pas');
