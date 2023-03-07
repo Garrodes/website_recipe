@@ -6,10 +6,7 @@ require_once('src/lib/database.php');
 
 class RecipeRepository 
 {
-    public \DatabaseConnection $connection;
-
-    public ?PDO $database = null;
-
+    
     public function getDeserts($identifier): Array
     {
         $statement = $this->connection -> getConnection()->prepare
@@ -29,9 +26,9 @@ class RecipeRepository
 
     public function getRecettes()
     {
-        $statement = $this -> connection -> getConnection()-> query
-        ( "SELECT * FROM recipe ORDER BY recipe_id");
-        
+        $statement = $this -> connection -> getConnection()-> prepare
+        ( "SELECT * FROM recipe  ORDER BY recipe_id");
+        $statement -> execute();
         $recettes=[];
         while($row = $statement -> fetch()) {
             $recette = new RecipeRepository();
@@ -40,8 +37,17 @@ class RecipeRepository
             $recette->recipe_order = $row['recipe_order'];
             $recettes[]=$recette;
         }
-        var_dump($recettes);
+        return $recettes;
 
+    }
+
+    public function addRecipe() 
+    {
+        $statement = $this -> connection -> getConnection() -> prepare
+        ( " INSERT INTO recipe(recipe_name, recipe_order) VALUES (%s,%s)");
+        // preventing sql attack ??
+        $statement -> bindParam();
+        // recup data from form : method POST, inserting into a readable variable by request ??
     }
 
 
