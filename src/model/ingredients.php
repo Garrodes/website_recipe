@@ -37,21 +37,17 @@ class Ingredients
 
     public function getIngredients(&$aa)
     {
-        
         $IngredientJson = file_get_contents('public/data/ingredients.json');
 
         $IngredientDecoded=json_decode($IngredientJson, true);
 
-        
-
         foreach($IngredientDecoded as $item) 
         {
-          $item["ing_id"] -> ing_id;
-          $item["name"] -> name;
-          $item["category"] -> category;
-          $item["price"] -> price;
-          $items[] = $item;
-          
+            $item["ing_id"] -> ing_id;
+            $item["name"] -> name;
+            $item["category"] -> category;
+            $item["price"] -> price;
+            $items[] = $item;
         }
         
         $aa = $items;
