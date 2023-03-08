@@ -41,13 +41,20 @@ class RecipeRepository
 
     }
 
-    public function addRecipe() 
+    public function addRecipe( string $recipe_name, string $recipe_order) : bool
     {
-        $statement = $this -> connection -> getConnection() -> prepare
-        ( " INSERT INTO recipe(recipe_name, recipe_order) VALUES (%s,%s)");
-        // preventing sql attack ??
-        $statement -> bindParam();
-        // recup data from form : method POST, inserting into a readable variable by request ??
+        
+            $statement = $this -> connection -> getConnection() -> prepare
+            ( " INSERT INTO recipe(recipe_name, recipe_order) VALUES (?, ? )");
+            // preventing sql attack ??
+            //$statement -> bindParam();
+            $image = $statement -> execute([
+                $recipe_name, $recipe_order
+            ]);
+
+            return ($image >0 );
+            // recup data from form : method POST, inserting into a readable variable by request ??
+         
     }
 
 
