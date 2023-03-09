@@ -10,8 +10,11 @@ class RecipeRepository
     public function getDeserts($identifier): Array
     {
         $statement = $this->connection -> getConnection()->prepare
-        ("SELECT recipe_id, recipe_name FROM recipe WHERE recipe_id = ? ORDER BY recipe_id ");
-        $statement->execute([$identifier]);
+        ("SELECT * FROM recipe WHERE recipe_id =:identifier AND recipe_order = 'desert' ");
+        // binding param to protect against sql injection attacks
+        $statement -> bindParam(":identifier", $identifier);
+        
+        $statement->execute([':identifier' => $identifier]);
 
         $deserts=[];
         while($row = $statement -> fetch()) {

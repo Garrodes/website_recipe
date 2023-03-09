@@ -32,7 +32,8 @@ use App\model\recipes\RecipeRepository;
             {
                 throw new Exception('Erreur Données du formulaires non envoyées');
             } else {
-            
+                
+                echo 'Données du formulaire enregistrées';
                 header('Location:index.php?action=form_recipe');
         }
         }
