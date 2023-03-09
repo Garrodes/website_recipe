@@ -15,15 +15,7 @@
                 <label for="recipe_order"> Recipe_order : </label>
                 <input type="text" name="recipe_order" id="recipe_order" lenght=30 />
             </div>
-            <div>
-                <button type="submit" > Save !</button>
-            </div>
-        </form>
-    
-    <h2> Tu peux aussi y ajouter des ingrédients : </h2>
-       
-        <form method="POST" action="#" >
-
+            <p> Tu peux aussi y ajouter des ingrédients : </p>
             <div>
                 <label for="ing1_name"> Ingrédient 1: </label>
                 <input type="text" name="ing1_name" id="ing1_name" lenght=30 />
@@ -38,8 +30,11 @@
                 <input type="radio" name="ing1_unit" id="g" value="g"  />
                 <label for="g"> g </label>
             </div>
-        <!-- ajouter ing 2 , 3 etc ... si valide !-->
+            <div>
+                <button type="submit" > Save !</button>
+            </div>
         </form>
+  
 
             
    
