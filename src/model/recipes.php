@@ -27,10 +27,19 @@ class RecipeRepository
 
     }
 
-    public function getRecettes()
+    public function getRecettes($limit = null)
     {
+        $query =  "SELECT * FROM recipe  ORDER BY recipe_id";
+        if ($limit) {
+            $query = $query . 'LIMIT:resultLIMIT';
+        }
+        
         $statement = $this -> connection -> getConnection()-> prepare
-        ( "SELECT * FROM recipe  ORDER BY recipe_id");
+        ($query);
+
+        if ($limit) {
+            $statement -> bindParam(':resultLimit', $limit, PDO:: PARAM_INT);
+        }
         $statement -> execute();
         $recettes=[];
         while($row = $statement -> fetch()) {
@@ -48,15 +57,26 @@ class RecipeRepository
     {
         
             $statement = $this -> connection -> getConnection() -> prepare
-            ( " INSERT INTO recipe(recipe_name, recipe_order) VALUES (?, ? )");
+            ( " INSERT INTO recipe(recipe_name, recipe_order) VALUES (?, ?)");
             // preventing sql attack ??
-            //$statement -> bindParam();
+           
             $image = $statement -> execute([
                 $recipe_name, $recipe_order
             ]);
 
+            $statement2 = $this -> connection -> getConnection() -> prepare 
+            ( " WITH fictive AS ( 
+            SELECT recipe_id, ing_id FROM recipe,ing WHERE 
+            
+            
+            
+            INSERT INTO recipe_ing(recipe_id, ing_id, q, unit) VALUES 
+            (recipe_id, SELECT recipe_id FROM recipe WHERE :recipe_name),
+            (ing_id, SELECT ing_id FROM ing WHERE :ing_name),
+            ?, ?");
+
             return ($image >0 );
-            // recup data from form : method POST, inserting into a readable variable by request ??
+    
          
     }
 
