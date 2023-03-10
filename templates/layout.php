@@ -6,6 +6,9 @@
         <link href="style.css" rel="stylesheet">
     </head>
     <body>
+        <header>
+        <h1> <a href="index.php"> Site de Recettes </a></h1>
+        </header>   
     <?= $content ?>
     </body>
 </html>

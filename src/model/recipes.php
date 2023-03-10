@@ -53,15 +53,15 @@ class RecipeRepository
 
     }
 
-    public function addRecipeSpecs( string $recipe_name, string $recipe_order) : bool
+    public function addRecipeSpecs( string $recipe_name, string $recipe_order, string $recipe_steps) 
     {
         
             $statement = $this -> connection -> getConnection() -> prepare
-            ( " INSERT INTO recipe(recipe_name, recipe_order) VALUES (?, ?)");
+            ( " INSERT INTO recipe(recipe_name, recipe_order, recipe_steps) VALUES (?, ?, ?)");
             // preventing sql attack ??
            
             $image1= $statement -> execute([
-                $recipe_name, $recipe_order
+                $recipe_name, $recipe_order, $recipe_steps
             ]);
             
             return ($image1 >0 );

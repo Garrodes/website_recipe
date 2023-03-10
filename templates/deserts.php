@@ -2,8 +2,6 @@
 
 <?php ob_start(); ?>
 
-    <h1> <a href="index.php">Site de Recettes </a></h1>
-
     <div class="deserts">
     <h2> Liste des desserts du site </h2>
      
