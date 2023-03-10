@@ -53,7 +53,7 @@ class RecipeRepository
 
     }
 
-    public function addRecipe( string $recipe_name, string $recipe_order) : bool
+    public function addRecipeSpecs( string $recipe_name, string $recipe_order) : bool
     {
         
             $statement = $this -> connection -> getConnection() -> prepare
@@ -63,10 +63,6 @@ class RecipeRepository
             $image1= $statement -> execute([
                 $recipe_name, $recipe_order
             ]);
-
-            
-            
-
             
             return ($image1 >0 );
     
@@ -80,9 +76,6 @@ class RecipeRepository
         $id_recipe_stmt -> bindParam(':Valid_recipe_name', $recipe_name);
         $id_recipe_stmt -> execute([':Valid_recipe_name'=> $recipe_name]);
         $addedrecipe_id = $id_recipe_stmt-> fetch();
-
-        // convert into an int, same for below
-
         
         return $addedrecipe_id[0];
         
@@ -94,9 +87,9 @@ class RecipeRepository
         $id_ing_stmt = $this -> connection -> getConnection() -> prepare
             ("SELECT ing_id FROM ingredient WHERE ing_name = :Valid_ing_name");
         $id_ing_stmt -> bindParam(':Valid_ing_name', $ing_name);
-        $id_ing_stmt -> execute ([':Valid_ing_name', $ing_name]);
+        $id_ing_stmt -> execute ([':Valid_ing_name'=> $ing_name]);
         $addeding_id = $id_ing_stmt -> fetch();
-        var_dump($addedrecipe_id);
+        
 
         if (!$addeding_id) {
             throw new Exception ('Ingredient' .$ing_name. ' not in db');
@@ -107,12 +100,12 @@ class RecipeRepository
 
     }
 
-    public function addIngSpecs(int $ing_id, int $adddedrecipe_id, $q, $L)
+    public function addIngSpecs(int $recipe_id, int $ing_id,  $q, $L):bool
     {
         
         $statement2 = $this -> connection -> getConnection() -> prepare 
-            ( " INSERT INTO recipe_ing(recipe_id, ing_id, q, L) VALUES ?,?,?,?");
-        $image2 = $statement2 -> execute([$addedrecipe_id, $addeding_id, $q, $L]);
+            ( " INSERT INTO recipe_ing(recipe_id, ing_id, q, L) VALUES (?,?,?,?)");
+        $image2 = $statement2 -> execute([$recipe_id, $ing_id, $q, $L]);
 
         return $image2;
     }

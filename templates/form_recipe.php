@@ -13,9 +13,15 @@
             </div>
             <div>
                 <label for="recipe_order"> Recipe_order : </label>
-                <input type="text" name="recipe_order" id="recipe_order" lenght=30 />
+                <input type="radio" name="recipe_order" id="main course" checked/>
+                <label for="main course"> main course </label>
+                <input type="radio" name="recipe_order" id="desert"/>
+                <label for="desert"> desert</label>
             </div>
             <p> Tu peux aussi y ajouter des ingrédients : </p>
+            <div>
+                <p>informations : 1 oeuf = ~ 60 g et on admettra que la densité de tout les liquides est de 1.</p>
+            </div>
             <div>
                 <label for="ing1_name"> Ingrédient 1: </label>
                 <input type="text" name="ing1_name" id="ing1_name" lenght=30 />
