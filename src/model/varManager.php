@@ -9,11 +9,14 @@ class varManager
     * ex : plate1 to make it plate2, enter plate1 and 6
     *@return modified name
     */
+    
     public function IncrementName ( &$name, int $positionint)
     {
-        $lenghttocut = -(strlen($name)-positionint-1);
+        $strname = print($name);
+        var_dump($strname);
+        $lenghttocut = -(strlen($strname-$positionint-1));
         
-        $i = substr($name, ($positionint-1) ,$lenghttocut );
+        $i = substr($strname, ($positionint-1) ,$lenghttocut );
 
         $leftpart = substr($name,0, ($lenghttocut+1));
         $rightpart = substr($name,$positionint);
@@ -23,11 +26,5 @@ class varManager
         return $name;
     }
 
-    public function getInttoincrement(string $name) : int
-    {
-        
-        
-        return $i;
 
-    }
 }

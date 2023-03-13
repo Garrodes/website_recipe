@@ -5,14 +5,14 @@ require_once('src/model/ingredients.php');
 require_once('src/model/varManager.php');
 
 use test\Ingredients; 
-use App\Model\vrManager;
+use App\Model\varManager;
 
 
 function homepage() 
 {
-   
-    
-    var_dump($Ing1_carrot =  IncrementName($Ing1_carrot, 4));
+    $Ing1_carrot = ' ..';
+    $varmanager = new varManager;
+    var_dump($varmanager -> IncrementName($Ing1_carrot, 4));
 
     require('templates/homepage.php');
 }
