@@ -2,19 +2,17 @@
 require_once('src/lib/database.php');
 require_once('src/model/recipes.php');
 require_once('src/model/ingredients.php');
-
+require_once('src/model/varManager.php');
 
 use test\Ingredients; 
+use App\Model\vrManager;
+
 
 function homepage() 
 {
    
-    /*
-    $carrot = new Ingredients();
-    $carrot-> name = 'Carrotte';
-    echo  $carrot->getName($carrot);
-    var_dump($carrot);
-    */
+    
+    var_dump($Ing1_carrot =  IncrementName($Ing1_carrot, 4));
 
     require('templates/homepage.php');
 }
